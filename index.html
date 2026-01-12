@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Capone - Chuť začíná u zdroje</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Dancing+Script:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- SVG clip-path definition -->
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <clipPath id="rounded-curl-mask" clipPathUnits="objectBoundingBox">
+          <path
+            transform="scale(0.00144209, 0.00211317) translate(-611.36567, -89.20029)"
+            d="M615.30934,116.13368c1.44965,-4.99474 3.96853,-9.85323 6.98099,-13.52311c2.9032,-3.53677 6.97177,-6.84111 10.86647,-8.819c3.61195,-1.83429 11.28194,-2.82499 11.28194,-2.82499l623.75072,-1.26629c0,0 13.77696,1.6714 20.04678,6.29255c6.298,4.64192 10.7767,8.24778 13.75423,13.74339c3.01459,5.564 2.31594,19.14705 2.31594,19.14705l-28.81846,193.18075c0,0 -23.7036,177.17917 -28.35208,198.57859c-2.08284,9.58843 -2.33848,11.89149 -4.913,17.1955c-2.59584,5.34794 -5.91742,10.90036 -10.64483,14.739c-5.12851,4.16433 -12.93295,7.23792 -19.54865,8.69977c-6.22411,1.37533 -18.93651,0.30739 -18.93651,0.30739c0,0 -459.23403,-68.5262 -513.95506,-75.02086c-10.10462,-1.19928 -22.63931,-2.30625 -28.93132,-3.58713c-7.26003,-1.47795 -16.65898,-2.5954 -22.92733,-7.3695c-6.80574,-5.18338 -10.56354,-11.48463 -10.56354,-11.48463c0,0 -3.84849,-5.75682 -4.31767,-14.50726c-1.07893,-20.12243 -0.20777,-117.99703 -0.06302,-173.05425c0.13214,-50.2608 0.22343,-127.03969 1.25813,-144.66074c0.47136,-8.02737 0.26555,-10.76782 1.71627,-15.76623z"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <h1 class="logo-text">Pizza Capone</h1>
+          <span class="logo-subtitle">Est. 1999</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home">Domů</a></li>
+          <li><a href="#filozofie">O nás</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="cart-btn" id="cartBtn">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path
+                d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+              ></path>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <button class="objednavka-btn">Objednávka</button>
+        </div>
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <div class="logo">
+          <h2 class="logo-text">Pizza Capone</h2>
+          <span class="logo-subtitle">Est. 1999</span>
+        </div>
+        <button class="close-menu" id="closeMenu">&times;</button>
+      </div>
+      <ul class="mobile-menu-list">
+        <li><a href="#home" class="mobile-menu-link">Domů</a></li>
+        <li><a href="#filozofie" class="mobile-menu-link">O nás</a></li>
+        <li><a href="#menu" class="mobile-menu-link">Menu</a></li>
+        <li><a href="#kontakt" class="mobile-menu-link">Kontakt</a></li>
+      </ul>
+      <button class="mobile-objednavka-btn">Objednávka</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Chuť začíná u zdroje</h1>
+        <p class="hero-subtitle">
+          Neschováváme se za komplikace. Věříme v dokonalost jednoduchých
+          ingrediencí a sílu ohně.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary" onclick="scrollToMenu()">Objednat</button>
+          <button class="btn-secondary" onclick="scrollToSection('filozofie')">
+            Naše Filozofie
+          </button>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Zjistit více</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- Filozofie Section -->
+    <section id="filozofie" class="filozofie">
+      <div class="container">
+        <div class="filozofie-grid">
+          <div class="filozofie-content">
+            <h2 class="section-title">Méně je více</h2>
+            <div class="decorative-line"></div>
+            <p class="filozofie-text">
+              Pravá italská tradice není o přebytku, ale o respektu k surovině.
+              Proto vám neukazujeme hotovou pizzu. Chceme, abyste viděli to, na
+              čem skutečně záleží: rajčata dozrálá pod jižním sluncem,
+              mozzarellu z rodinných farem a mouku mletou kamenem.
+            </p>
+            <p class="filozofie-text">
+              Naše rodinná pizzerie působí od roku 1999. Zakládáme na čerstvých
+              surovinách a domácí výrobě. Každá ingredience vypráví svůj příběh
+              a my ho chceme sdílet s vámi.
+            </p>
+            <p class="filozofie-quote">
+              "Výsledek necháváme na vaší fantazii a naší peci."
+            </p>
+          </div>
+          <div class="filozofie-image">
+            <div class="image-wrapper">
+              <img
+                src="img/pizza-nahled-ingredience.png"
+                alt="Čerstvé ingredience"
+              />
+              <div class="image-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+      <div class="container">
+        <h2 class="section-title-center">Široká nabídka italských jídel</h2>
+        <p class="section-subtitle">
+          Každý nás pokrm vypráví svůj vlastní příběh
+        </p>
+
+        <div class="menu-tabs">
+          <button class="tab-btn active" data-category="vse">Vše</button>
+          <button class="tab-btn" data-category="pizza">Pizza</button>
+          <button class="tab-btn" data-category="pasta">Pasta</button>
+          <button class="tab-btn" data-category="spaghetti">Spaghetti</button>
+          <button class="tab-btn" data-category="lasagne">Lasagne</button>
+          <button class="tab-btn" data-category="specialty">Speciality</button>
+          <button class="tab-btn" data-category="dezerty">Dezerty</button>
+          <button class="tab-btn" data-category="salaty">Saláty</button>
+          <button class="tab-btn" data-category="vegan">Vegan Pizza</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+          <!-- Menu items will be generated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+      <div class="process-overlay"></div>
+      <div class="container">
+        <div class="process-content">
+          <h2 class="section-title-light">Oheň jako ingredience</h2>
+          <div class="decorative-line-light"></div>
+          <p class="process-text">
+            Naše těsto zraje 48 hodin, aby dosáhlo dokonalé lehkosti. Poté se
+            setká s teplotou 450°C v naší peci na dřevo. Těch 90 sekund je
+            okamžikem pravdy, který dává vzniknout nezaměnitelné chuti a
+            textuře.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Historie Section -->
+    <section class="historie">
+      <div class="container">
+        <div class="historie-grid">
+          <div class="historie-content">
+            <h2 class="section-title">Naše rodinná historie</h2>
+            <div class="decorative-line"></div>
+            <p class="historie-text">
+              Pizza Capone vznikla v roce 1999 s jediným cílem - přinést
+              autentickou chuť Itálie do srdce České republiky. Naše hlavní
+              činností je výroba lahodných italských pokrmů, mezi které patří
+              hlavně pizza, špagety, noky, tortelliny, saláty, lasagne a italské
+              speciality.
+            </p>
+            <p class="historie-text">
+              Každé jídlo je vyrobeno z každodenně kupovaných čerstvých surovin
+              a je mu věnována péče skutečného odborníka. Stali jsme se první
+              nekuřáckou pizzerií v Karlových Varech, abychom vám umožnili
+              vychutnat si lahodnou italskou kuchyni bez nepříjemného kouřového
+              zápachu.
+            </p>
+            <p class="historie-text">
+              Naše pizzeria vás příjemně překvapí svojí rodinnou atmosférou,
+              příjemnou obsluhou a bohatým výběrem italských pokrmů. V naší
+              nabídce naleznete více než devatenáct druhů různých pokrmů. Vámi
+              vybrané jídlo buď doveze nebo si ho můžete vyzvednout v naší
+              útulné pizzerii.
+            </p>
+            <div class="historie-features">
+              <div class="feature-card">
+                <h3>Rodina</h3>
+                <p>Tradice předávané z generace na generaci</p>
+              </div>
+              <div class="feature-card">
+                <h3>Kvalita</h3>
+                <p>Pouze nejlepší ingredience z Itálie</p>
+              </div>
+              <div class="feature-card">
+                <h3>Tradice</h3>
+                <p>Autentické recepty od roku 1999</p>
+              </div>
+            </div>
+          </div>
+          <div class="historie-image">
+            <div class="polaroid">
+              <img
+                src="img/amazing-colorful-italian-cuisine-ingredients.webp"
+                alt="Pizza Capone 1999"
+              />
+              <div class="polaroid-caption">Pizza Capone, 1999</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-end">
+      <div class="process-overlay"></div>
+      <div class="container">
+        <div class="process-content">
+          <h2 class="section-title-light">Ruční výroba</h2>
+          <div class="decorative-line-light"></div>
+          <p class="process-text">
+            Každá pizza je pečlivě ručně připravena našimi zkušenými pekaři.
+            Těsto je hněteno s láskou a precizností, aby dosáhlo dokonalé
+            konzistence. Ingredience jsou pečlivě vybírány a kombinovány tak,
+            aby vytvořily harmonickou chuťovou symfonii.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lokace Section -->
+    <section class="lokace">
+      <div class="container">
+        <h2 class="section-title-center">Kde nás najdete</h2>
+        <p class="section-subtitle">Naše dveře jsou vždy otevřené pro rodinu</p>
+
+        <div class="lokace-grid">
+          <div class="lokace-info">
+            <div class="info-block">
+              <h3>Adresa</h3>
+              <p>Sokolovská 525/101</p>
+              <p>360 05 Karlovy Vary</p>
+            </div>
+            <div class="info-block">
+              <h3>Otevírací doba</h3>
+              <p>Každý den: 11:00 - 24:00</p>
+              <p>Rozvoz funguje až do půlnoci</p>
+            </div>
+            <div class="info-block">
+              <h3>Telefon</h3>
+              <p>+420 353 569 665</p>
+              <p>+420 606 100 729</p>
+            </div>
+            <div class="info-block">
+              <h3>Email</h3>
+              <p>sef@cappone.cz</p>
+            </div>
+            <div class="info-block">
+              <h3>Rozvoz</h3>
+              <p>Cena rozvozu po Karlových Varech: 39 Kč</p>
+              <p>V okolí Karlových Varů: cena smluvní</p>
+              <p>Přijímáme pouze platby v hotovosti či stravenkami</p>
+            </div>
+          </div>
+          <div class="lokace-map">
+            <div class="lokace-image-wrapper">
+              <img
+                src="img/pobocka.png"
+                alt="Pizza Capone pobočka"
+                class="lokace-image"
+              />
+              <div class="lokace-overlay">
+                <div class="lokace-overlay-content">
+                  <div class="map-pin">📍</div>
+                  <h4>Navštivte nás</h4>
+                  <p>Karlovy Vary a okolí</p>
+                  <p class="company-info">Cappone s.r.o.</p>
+                  <p class="company-info">IČ: 29082480</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontakt" class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h3>Pizza Capone</h3>
+            <p class="footer-text">
+              Naše rodinná pizzerie působí od roku 1999. Zakládáme na čerstvých
+              surovinách a domácí výrobě.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h4>Otevírací doba</h4>
+            <ul class="footer-list">
+              <li>Po-Pá: 11:00 - 22:00</li>
+              <li>So-Ne: 12:00 - 23:00</li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Kontakt</h4>
+            <ul class="footer-list">
+              <li>Telefon: +420 123 456 789</li>
+              <li>Email: info@pizzacapone.cz</li>
+              <li>Karlovy Vary, Česká republika</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Pizza Capone. Vytvořeno s respektem k tradici.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="pizzaModal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="modal-body">
+          <div class="modal-image">
+            <img id="modalImage" src="" alt="" />
+          </div>
+          <div class="modal-info">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription" class="modal-description"></p>
+
+            <div class="size-selection">
+              <h3>Velikost:</h3>
+              <div class="size-options">
+                <label class="size-option">
+                  <input type="radio" name="size" value="30" checked />
+                  <span class="size-label">
+                    <span class="size-diameter">⌀ 30 cm</span>
+                    <span class="size-price" id="price30"></span>
+                  </span>
+                </label>
+                <label class="size-option">
+                  <input type="radio" name="size" value="45" />
+                  <span class="size-label">
+                    <span class="size-diameter">⌀ 45 cm</span>
+                    <span class="size-price" id="price45"></span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="ingredients-section">
+              <h3>Přidat ingredience:</h3>
+              <div class="ingredients-grid" id="ingredientsGrid">
+                <!-- Ingredients will be generated by JavaScript -->
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <div class="quantity-selector">
+                <button class="qty-btn" onclick="decreaseQty()">-</button>
+                <input type="number" id="quantity" value="1" min="1" readonly />
+                <button class="qty-btn" onclick="increaseQty()">+</button>
+              </div>
+              <div class="total-price">
+                <span class="price-label">Celkem:</span>
+                <span class="price-amount" id="totalPrice">139 Kč</span>
+              </div>
+              <button class="btn-add-cart">Přidat do košíku</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M12 19V5M5 12l7-7 7 7" />
+      </svg>
+    </button>
+
+    <!-- Mobile Cart Button -->
+    <button class="mobile-cart-btn" id="mobileCartBtn">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path
+          d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+        ></path>
+      </svg>
+      <span class="cart-count" id="mobileCartCount">0</span>
+    </button>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-container">
+        <div class="cart-header">
+          <h2>Váš košík</h2>
+          <button class="cart-close" id="cartClose">&times;</button>
+        </div>
+
+        <div class="cart-content">
+          <div class="cart-items" id="cartItems">
+            <!-- Cart items will be generated by JavaScript -->
+          </div>
+
+          <div class="cart-summary">
+            <div class="cart-delivery">
+              <span>Doprava kurýrem</span>
+              <span class="delivery-price" id="deliveryPrice">+ 39 Kč</span>
+            </div>
+            <div class="cart-total-row">
+              <span>Celková cena</span>
+              <span class="cart-total-price" id="cartTotalPrice">+ 0 Kč</span>
+            </div>
+            <div class="cart-discount">
+              <span>Při online objednávce sleva 10%</span>
+              <span class="discount-price" id="discountPrice">- 0 Kč</span>
+            </div>
+            <div class="cart-final-total">
+              <span>Celkem se slevou</span>
+              <span class="final-price" id="finalPrice">0 Kč</span>
+            </div>
+            <p class="cart-delivery-note">
+              Doprava zdarma při nákupu nad 3 000 Kč
+            </p>
+          </div>
+
+          <div class="cart-form">
+            <h3>Shrnutí objednávky</h3>
+            <form id="orderForm">
+              <input type="text" placeholder="Vaše město" required />
+              <input type="text" placeholder="Vaše ulice" required />
+              <input type="text" placeholder="Číslo domu" required />
+              <input type="text" placeholder="Byt" />
+              <input type="text" placeholder="Patro" />
+              <input type="text" placeholder="Vchod" />
+              <input type="text" placeholder="Kód dveří" />
+              <input type="tel" placeholder="Telefon" required />
+              <input type="email" placeholder="Email" required />
+              <input type="text" placeholder="Datum" />
+              <input type="text" placeholder="Máte kupón/promo kód?" />
+              <textarea placeholder="Váš komentář..." rows="3"></textarea>
+              <button type="submit" class="cart-submit-btn">
+                Odeslat objednávku
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
