@@ -518,7 +518,6 @@ backToTop.addEventListener('click', () => {
 let cart = [];
 const cartSidebar = document.getElementById('cartSidebar');
 const cartClose = document.getElementById('cartClose');
-const objednavkaBtns = document.querySelectorAll('.objednavka-btn, .mobile-objednavka-btn');
 
 // Open cart
 function openCart() {
@@ -654,10 +653,6 @@ function updateCartCount() {
 }
 
 // Event listeners
-objednavkaBtns.forEach(btn => {
-    btn.addEventListener('click', openCart);
-});
-
 // Cart button in navigation
 const cartBtn = document.getElementById('cartBtn');
 if (cartBtn) {
