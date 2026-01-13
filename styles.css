@@ -2371,4 +2371,27 @@ html {
     .modal-image img {
         height: 250px;
     }
+
+    /* Vypnout horizontální animace na mobilu */
+    .filozofie-content,
+    .filozofie-image,
+    .historie-text,
+    .polaroid,
+    .lokace-info,
+    .lokace-map,
+    .feature-card {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
+
+    .filozofie-content.visible,
+    .filozofie-image.visible,
+    .historie-text.visible,
+    .polaroid.visible,
+    .lokace-info.visible,
+    .lokace-map.visible,
+    .feature-card.visible {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
 }
