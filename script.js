@@ -179,14 +179,47 @@ function isItemInCart(itemId) {
     return cart.some(cartItem => cartItem.productId === itemId);
 }
 
+// Helper function to highlight matching text
+function highlightText(text, searchTerm) {
+    if (!searchTerm.trim()) return text;
+
+    const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return text.replace(regex, '<mark class="highlight">$1</mark>');
+}
+
 // Render menu items
-function renderMenu(filter = 'vse') {
+function renderMenu(filter = 'vse', searchTerm = '') {
     const menuGrid = document.getElementById('menuGrid');
     menuGrid.innerHTML = '';
 
-    const filteredItems = filter === 'vse'
+    let filteredItems = filter === 'vse'
         ? menuData
         : menuData.filter(item => item.category === filter);
+
+    // Apply search filter if search term exists
+    if (searchTerm.trim() !== '') {
+        const search = searchTerm.toLowerCase();
+        filteredItems = filteredItems.filter(item =>
+            item.name.toLowerCase().includes(search) ||
+            item.description.toLowerCase().includes(search)
+        );
+    }
+
+    // Show "no results" message if no items found
+    if (filteredItems.length === 0) {
+        menuGrid.innerHTML = `
+            <div class="no-results">
+                <div class="no-results-icon">🔍</div>
+                <h3 class="no-results-title">Žádné výsledky</h3>
+                <p class="no-results-text">
+                    ${searchTerm.trim() !== ''
+                        ? `Nenašli jsme žádné produkty odpovídající "<strong>${searchTerm}</strong>"`
+                        : 'V této kategorii nejsou žádné produkty'}
+                </p>
+            </div>
+        `;
+        return;
+    }
 
     filteredItems.forEach(item => {
         const menuItem = document.createElement('div');
@@ -206,13 +239,17 @@ function renderMenu(filter = 'vse') {
         const inCart = isItemInCart(item.id);
         const btnText = inCart ? 'V košíku' : 'Přidat do košíku';
 
+        // Highlight matching text
+        const highlightedName = highlightText(item.name, searchTerm);
+        const highlightedDescription = highlightText(item.description, searchTerm);
+
         menuItem.innerHTML = `
             <div class="menu-item-image">
                 <img src="${item.image}" alt="${item.name}">
             </div>
             <div class="menu-item-content">
-                <h3 class="menu-item-name">${item.name}</h3>
-                <p class="menu-item-description">${item.description}</p>
+                <h3 class="menu-item-name">${highlightedName}</h3>
+                <p class="menu-item-description">${highlightedDescription}</p>
                 ${sizeBadges ? `<div class="menu-item-sizes">${sizeBadges}</div>` : ''}
                 <div class="menu-item-footer">
                     <div class="menu-item-price">
@@ -235,9 +272,18 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 
         const category = btn.getAttribute('data-category');
         currentFilter = category;
-        renderMenu(category);
+        const searchInput = document.getElementById('menuSearchInput');
+        renderMenu(category, searchInput ? searchInput.value : '');
     });
 });
+
+// Search functionality
+const menuSearchInput = document.getElementById('menuSearchInput');
+if (menuSearchInput) {
+    menuSearchInput.addEventListener('input', (e) => {
+        renderMenu(currentFilter, e.target.value);
+    });
+}
 
 // Modal functionality
 const modal = document.getElementById('pizzaModal');
