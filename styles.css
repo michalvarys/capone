@@ -2096,17 +2096,20 @@ html {
 
 @media (max-width: 768px) {
     /* Prevence horizontálního scrollování */
-    * {
-        max-width: 100vw;
+    body {
+        overflow-x: hidden !important;
+        position: relative;
     }
 
     .nav-container {
         padding: 0 10px;
         width: 100%;
+        box-sizing: border-box;
     }
 
     .navbar {
         width: 100%;
+        box-sizing: border-box;
     }
 
     .logo-text {
@@ -2135,29 +2138,40 @@ html {
     }
 
     .hero {
-        width: 100vw;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .hero-content {
         width: 100%;
         padding: 0 20px;
+        box-sizing: border-box;
     }
 
     .hero-title {
         font-size: 2.5rem;
         max-width: 100%;
         word-wrap: break-word;
+        box-sizing: border-box;
     }
 
     .hero-subtitle {
         font-size: 1.1rem;
         max-width: 100%;
+        box-sizing: border-box;
     }
 
     .hero-buttons {
         flex-direction: column;
         width: 100%;
         gap: var(--spacing-sm);
+        box-sizing: border-box;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary {
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .btn-primary,
@@ -2185,20 +2199,23 @@ html {
     .process,
     .process-end {
         padding: var(--spacing-md) 0;
-        width: 100vw;
+        width: 100%;
         overflow-x: hidden;
+        box-sizing: border-box;
     }
 
     .container {
         padding: 0 10px;
         width: 100%;
-        max-width: 100vw;
+        max-width: 100%;
         overflow-x: hidden;
+        box-sizing: border-box;
     }
 
     section {
-        width: 100vw;
+        width: 100%;
         overflow-x: hidden;
+        box-sizing: border-box;
     }
 
     .filozofie-grid,
@@ -2217,18 +2234,21 @@ html {
     }
 
     .footer {
-        width: 100vw;
+        width: 100%;
         overflow-x: hidden;
+        box-sizing: border-box;
     }
 
     .footer-grid {
         grid-template-columns: 1fr;
         width: 100%;
+        box-sizing: border-box;
     }
 
     .footer-column {
         width: 100%;
         max-width: 100%;
+        box-sizing: border-box;
     }
 
     .menu-tabs {
