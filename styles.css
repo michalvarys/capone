@@ -2147,6 +2147,20 @@ html {
         font-size: 2rem;
     }
 
+    /* Zmenšené paddingy pro sekce */
+    .filozofie,
+    .historie,
+    .menu-section,
+    .lokace,
+    .process,
+    .process-end {
+        padding: var(--spacing-md) 0;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
     }
@@ -2176,5 +2190,36 @@ html {
         width: 150px;
         height: 150px;
         opacity: 0.15;
+    }
+
+    /* Košík na mobilu */
+    .cart-sidebar {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        min-width: 100vw !important;
+    }
+
+    .cart-container {
+        padding: 15px;
+    }
+
+    .cart-header {
+        padding: 15px;
+        margin: -15px -15px 0 -15px;
+    }
+
+    .cart-content {
+        padding: 15px;
+        margin: 0 -15px;
+    }
+
+    .cart-form {
+        padding: 15px;
+    }
+
+    .cart-form input,
+    .cart-form textarea {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
     }
 }
